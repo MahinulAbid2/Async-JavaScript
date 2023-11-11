@@ -61,5 +61,57 @@ const myPromise = new Promise(); // Basic Syntax
 // new Promise() takes an anonymous function. () => { }
 
 const myPromise = new Promise( ( resolve, reject ) => { });
-// resolve : when 
+// resolve : used for returning "something" on "success".
+// reject : used for returning "error" on "failure".
+
 ```
+
+
+```javascript
+const myPromise = new Promise( ( resolve, reject ) => {
+  if( condition ) {
+    resolve ( );
+    // inside this = ( ) whatever we put will be returned by the promise.
+  }
+
+  else {
+    reject ( );
+    // if promise doesn't execute properly, it will return an error message.
+    // this doesn't have to be a error message.
+    // But this reject () is used to send Error message.
+  }
+})
+```
+
+
+```javascript
+// very basic usuage
+let x = 1;
+
+const a = new Promise ( ( resolve, reject ) => {
+
+  const data = {
+    // here contains a person data
+    firstName: 'john',
+    age:20
+  }
+
+  if( x === 1 ) {
+    // if x value is 1, then promise will return  "data"
+    resolve("contains data");
+  } else {
+    // if x's value not 1 then promise will return "error message"
+    reject ( "Error: x is not equal to 1, change x's value to 1" );
+  }
+})
+```
+
+
+
+
+
+
+
+
+
+
