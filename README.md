@@ -179,7 +179,44 @@ x.then().catch();
 // if it is a basic promise, then I won't have to use (), parenthesis with x.
 ```
 
+<br>
+<br>
+<br>
 
+
+# Practical
+Goal: 
+* The goal is to create a Promise that takes a password
+* If the password is correct then `a data object` will be <b>promised </b>
+* If the password is incorrect then it will return `an error`.
+
+```javascript
+const x = (password) => {
+    const a = {
+      firstName: "john",
+      age: 20
+    };
+    return new Promise( (resolve, reject ) => {
+        if(password === "helloworld") {
+            resolve(a);
+        }
+        else {
+            reject(`Error: The password is wrong`);
+        }
+    })
+}
+
+
+x("helloworld")
+
+.then( ( res ) => {
+    console.log(res);
+})
+
+.catch( ( err ) => {
+    console.log(err);
+} )
+```
 
 
 
