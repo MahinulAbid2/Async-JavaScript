@@ -192,10 +192,14 @@ Goal:
 
 ```javascript
 const x = (password) => {
+
+    // creating an object which will return if password is correct
     const a = {
       firstName: "john",
       age: 20
     };
+
+    // for creating functional Promise, I have to return a basic promise
     return new Promise( (resolve, reject ) => {
         if(password === "helloworld") {
             resolve(a);
@@ -207,13 +211,13 @@ const x = (password) => {
 }
 
 
-x("helloworld")
+x("helloworld")  // calling the functional promise and giving password as argument.
 
-.then( ( res ) => {
+.then( ( res ) => {  // if the password is correct, then() will print the object 
     console.log(res);
 })
 
-.catch( ( err ) => {
+.catch( ( err ) => {  // incorrect password will print the error
     console.log(err);
 } )
 ```
