@@ -233,7 +233,18 @@ x("helloworld")  // calling the functional promise and giving password as argume
 # async/await
 * `async` keyword is more fashionable way to create `promise`.
 * Coders can only use `async` before a function.
-* `async/await` is simply <b>Cleaner and Easier way </i> to write `promise`. 
+* `async/await` is simply <b>Cleaner and Easier way </i> to write `promise`.
+
+<br>
+* Basic Syntax: 
+
+```javascript
+const getData = async () => { } // arrow functions , also function expression
+
+const getData = async function () { }  // function expression
+
+async function getData () { } // function declaration
+```
 
 
 
