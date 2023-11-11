@@ -20,6 +20,8 @@ const y = ( callback ) => {  // added an argument that takes function.
   // this function is called as an argument.
   callback();
 }
+
+y(x) // calling x function in y function as argument.
 ```
 
 <br>
@@ -222,6 +224,16 @@ x("helloworld")  // calling the functional promise and giving password as argume
 } )
 ```
 
+
+<br>
+<br>
+<br>
+<br>
+
+# async/await
+* `async` keyword is more fashionable way to create `promise`.
+* Coders can only use `async` before a function.
+* `async/await` is simply <b>Cleaner and Easier way </i> to write `promise`. 
 
 
 
