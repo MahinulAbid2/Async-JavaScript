@@ -246,6 +246,13 @@ const getData = async function () { }  // function expression
 async function getData () { } // function declaration
 ```
 
+<br>
+
+Now I know that Promise returns two things. <br>
+One is the `resolve`. <br>
+Another One is the `reject`. <br>
+How can I specify resolve and reject here?
+
 
 
 
