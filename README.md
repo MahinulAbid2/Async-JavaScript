@@ -69,18 +69,36 @@ const myPromise = new Promise( ( resolve, reject ) => { });
 
 ```javascript
 const myPromise = new Promise( ( resolve, reject ) => {
-  if( condition ) {
+  if( condition ) {  // if condition is true
     resolve ( );
     // inside this = ( ) whatever we put will be returned by the promise.
   }
 
-  else {
+  else if ( !condition )  { // if condition is false
     reject ( );
-    // if promise doesn't execute properly, it will return an error message.
-    // this doesn't have to be a error message.
+    // if operation is unsuccessful whatever inside of reject() will be returned.
+    // this doesn't have to be a error message. Can be anything.
     // But this reject () is used to send Error message.
   }
 })
+```
+
+```javascript
+.then() // it catches the "resolve" value
+.catch() // it catches "reject" value
+
+myPromise   // we can put space here for better readibility, never use (;) here.
+
+.then(
+  ( resolve ) => {  // .then and .catch takes an anonymous function.
+    // that anonoymous function takes an argument that catches the resolve value.
+    console.log( resolve );
+})
+
+.catch (
+  ( err ) => {
+    console.log( err );
+}) 
 ```
 
 
@@ -106,7 +124,60 @@ const a = new Promise ( ( resolve, reject ) => {
 })
 ```
 
+<br>
+<br>
+<br>
 
+# Questions:
+* <i> What is callback?
+* Write a basic structure of callback with code.
+* Is callback function asyncronous?
+* What is `syncronous function`?
+* What does modern JavaScript use for asyncronous programming?
+* What is Promise?
+* What are the two things that Promise return?
+* Write basic structure of Promise.
+* How to catch the Promise's resolve and reject?
+</i>
+
+
+<br>
+<br>
+<br>
+
+# Promise within a function 
+```javascript
+const x = () => {
+  return new Promise( ( resolve, reject ) => {
+    
+  }
+}
+
+// technically this x() function bocomes a Promise.
+x().then().catch();
+```
+
+<br>
+
+Here is a difference between basic Promise and a functional Promise
+```javascript
+// FUNCTIONAL PROMISE
+const x = () => {
+  return new Promise( ( resolve, reject ) => { } ) }
+
+x().then().catch();
+// if it is a function promise, I have to use (), parenthesis with x
+```
+
+
+
+```javascript
+// BASIC PROMISE
+const x = new Promise ( ( resolve, reject ) => { } ) }
+
+x.then().catch();
+// if it is a basic promise, then I won't have to use (), parenthesis with x.
+```
 
 
 
