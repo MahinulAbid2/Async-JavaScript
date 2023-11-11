@@ -233,7 +233,7 @@ x("helloworld")  // calling the functional promise and giving password as argume
 # async/await
 * `async` keyword is more fashionable way to create `promise`.
 * Coders can only use `async` before a function.
-* `async/await` is simply <b>Cleaner and Easier way </i> to write `promise`.
+* `async/await` is simply <b>Cleaner and Easier way </i> to write `promise`. </b>
 
 <br>
 * Basic Syntax: 
@@ -252,6 +252,59 @@ Now I know that Promise returns two things. <br>
 One is the `resolve`. <br>
 Another One is the `reject`. <br>
 How can I specify resolve and reject here?
+
+<br>
+<br>
+
+This is where the topic gets complicated. <br>
+<i> There are so many <b>combination</b> to do in `async function`. </i>
+
+<br>
+<br>
+
+
+Doing Basic Promise resolve()
+```javascript
+const x = async () => {
+  // do some processing
+
+  // this is One FORM of resolving
+  // simply return something.
+  // That value(returned) will be catched by .then ()
+  return "hello world"
+}
+
+x().then( (result) => {
+  console.log(result); // output : hello world
+})
+```
+
+<br>
+
+Note: There are some code that contains `Promise.resolve()` in async function. `Don't follow that code`.
+```javascript
+const x = async () => {
+  Promise.resolve("hello world");
+  // do not use Promise.resolve() here.
+}
+
+x().then( (result) => {
+  console.log(result); // output : hello world
+})
+```
+
+#### Do not use Promise.resolve() in `async function()`
+
+
+
+
+
+
+
+
+
+
+
 
 
 
