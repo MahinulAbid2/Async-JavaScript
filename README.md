@@ -407,6 +407,56 @@ So, when should I use `await`?
 
 
 
+<br>
+<br>
+<br>
+
+# `await` is used to unwrap the value of `resolve`. Now, how to catch the error that promise sent?
+* To solve the issue, I need to use `try {} catch() {}`.
+* Two section.
+* One: try {}, this is where I unwrap the resolve.
+* Two : catch () {}, this is where I catch the error.
+* Its like `if else` statement.
+* I can't put other code between try and catch.
+
+```javascript
+const x =2;
+
+const z = new Promise( (resolve, reject ) => {
+    //created a new promise 
+    // this will return resolve
+    if (x ===1 ) {
+        resolve("this is resolve");
+    }
+    else{
+        reject("Error: x's value should be one.")
+    }
+})
+
+
+
+const a = async () => {
+    try {  // this is where I'll unwrap the resolve.
+        let t = await z;
+        console.log(t);
+    }
+    
+    catch(error) {  // this is where I'll catch the error
+        console.log(error);
+    }
+    
+}
+
+a();
+```
+
+<br>
+<br>
+
+### When should I use try&catch? When I want to catch error that other promise sent. If I don't want to catch any error, I could simply use `await`.
+
+
+
 
 
 
