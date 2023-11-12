@@ -248,6 +248,31 @@ async function getData () { } // function declaration
 
 <br>
 
+Behaviour of `async` function
+```javascript
+const x = async () =>{
+    for(let i =0; i < 100000000; i++) {
+        if( i == 10000000) {
+            return ( i );
+        }
+    }
+}
+
+x().then( (res ) => {
+    console.log(res);
+})
+
+console.log("hello world");
+
+
+//output:
+//hello world
+//10000000
+```
+> Even if i called the x() before hello world console for its async functionalities, x() result was logged in console after printing hello world
+
+<br>
+
 Now I know that Promise returns two things. <br>
 One is the `resolve`. <br>
 Another One is the `reject`. <br>
@@ -281,11 +306,11 @@ x().then( (result) => {
 
 <br>
 
-Note: There are some code that contains `Promise.resolve()` in async function. `Don't follow that code`.
+Note: There are some code that contains `Promise.resolve()` in async function on the website documents. `Don't follow that code`.
 ```javascript
 const x = async () => {
   Promise.resolve("hello world");
-  // do not use Promise.resolve() here.
+  // DO NOT use Promise.resolve() here.
 }
 
 x().then( (result) => {
@@ -295,8 +320,27 @@ x().then( (result) => {
 
 #### Do not use Promise.resolve() in `async function()`
 
+<br>
+<br>
 
 
+* What I've learned so far:
+* <i> `async` keyword can be used before function `const x = async () => {}`
+* Create an `async function`
+* Whatever gets `returned`, is the `resolve` of the hidden `promise`.
+</i>
+
+<br>
+
+There are two things I can do in `async function`
+* Await 
+* try{ }  catch() { }
+
+<br>
+<br>
+<br>
+
+# await
 
 
 
