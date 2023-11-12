@@ -341,11 +341,69 @@ There are two things I can do in `async function`
 <br>
 
 # await
+* What exactly `await` is?
+* `await` does a lot of things.
+* `await` <b>pause</b> next line execution within `async function`, untill await complete its task.
+* It doesn't pause code outside of the `async` function.
+* `await` can only be used within `async function`.
+
+<br>
+
+* This information is complex to understand. <b>FOCUS</b>.
+* `async function` can resolve its hidden promise by `return` something. That can be catched by ` function().then( () => {} )`
+* One: `async` function can create Promise.
+* Two: `async function` can very easily <b>unwrap</b> other promise's `resolve`, using `await`.
+* So `await` does two things. 1) Pause the next line execution... 2) Unwrap other promises `resolve`.
+
+<b>Question</b>: when should we use await? <br>
+
+<br>
+<br>
+
+Let's just write am `async` function which gets a promise's resolve, using `await`.
+```javascript
+// Goal : to know if await can unwrap other promise's resolve 
+// and immidiately store it in variable
+
+const x =2;
+
+const z = new Promise( (resolve, reject ) => {
+    //created a new promise 
+    // this will return resolve
+    if (x ===1 ) {
+        resolve("this is resolve");
+    }
+    else{
+        reject("Error: x's value should be one.")
+    }
+})
+
+
+// lets create async function that will use await to unwrap the promise's resolve
+const a = async () => {
+    let t = await z;
+    // await unwrap the promise's resolve
+    // which I can use, store in a variable.
+    // also await pause execution of next line code untill it gets "z" resolve.
+
+    console.log(t);
+}
+
+a();
+
+//output:
+//this is resolve
+```
 
 
 
+<br>
+<br>
 
-
+## Conclusion: await
+So, when should I use `await`? 
+* <b>Important:</b> When I need to fetch other `promise`'s resolve.
+* <b>Not important:</b> When I need to stop next line code execution untill this task is finished.
 
 
 
